@@ -9,14 +9,12 @@ import React, { Component } from 'react';
 {%- endblock form_label %}
  */
 
-import { setVars } from 'react-symfony-formview';
-import BaseLabel from './index';
+import { Label as BaseLabel, setVars } from 'react-symfony-formview';
 
 export default class Label extends Component {
     render() {
         let label_attr = this.props.vars.label_attr;
         label_attr = Object.assign({}, label_attr, { class: `${label_attr && label_attr.class || ''} control-label` });
-        // return <BaseLabel {...setVars.call(this.props, { label_attr })} />
-        return <div></div>
+        return <BaseLabel {...setVars.call(this.props, { label_attr })} />
     }
 }
