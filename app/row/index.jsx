@@ -27,10 +27,27 @@ import TimeRow from './time';
 
 export default class Row extends Component {
     render() {
-        return <div className={`form-group ${this.props.vars.compound || this.props.vars.force_error && !this.props.vars.valid && 'has-error' || ''}`}>
-            <Errors {...this.props}/>
-            <Label {...this.props}/>
-            <Widget {...this.props}/>
-        </div>
+        const prefixes = this.props.vars.block_prefixes;
+        switch (prefixes[1]) {
+            case 'checkbox':
+                switch (prefixes[2]) {
+                    case 'radio': return <RadioRow {...this.props} />
+                    default: return <CheckboxRow {...this.props} />
+                }
+            case 'choice': return <ChoiceRow {...this.props} />
+            case 'date': return <DateRow {...this.props} />
+            case 'datetime': return <DatetimeRow {...this.props} />
+            case 'hidden': return <HiddenRow {...this.props} />
+            case 'button':
+            case 'reset':
+            case 'submit': 
+                return <ButtonRow {...this.props} />
+            default: 
+                return <div className={`form-group ${this.props.vars.compound || this.props.vars.force_error && !this.props.vars.valid && 'has-error' || ''}`}>
+                    <Errors {...this.props}/>
+                    <Label {...this.props}/>
+                    <Widget {...this.props}/>
+                </div>
+        }
     }
 }

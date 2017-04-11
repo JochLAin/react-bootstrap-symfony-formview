@@ -18,8 +18,12 @@ import React, { Component } from 'react';
 
 export default class Errors extends Component {
     render() {
-        return <ul>
-            {/*{ this.props.vars.errors != {} && this.props.vars.errors.map(error => <li>{error.message}</li> )}*/}
+        if (!this.props.vars.errors) return <span></span>
+
+        const errors = <ul className="list-unstyled">
+            { this.props.vars.errors.map(error => <li>{error.message}</li>)}
         </ul>
+        if (!this.props.parent) return <span class="help-block">{errors}</span>
+        return <div className="alert alert-danger">{errors}</div>
     }
 }

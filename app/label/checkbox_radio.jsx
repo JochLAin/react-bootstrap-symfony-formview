@@ -49,6 +49,7 @@ export default class CheckboxRadio extends Component {
         if (label !== false && !label) label = format.call(this);
         else label = this.props.vars.name;
 
+        console.log(this.props.vars.id, this.props.vars.widget);
         return <label {...Attributes.call(this.props, label_attr)}>
             {this.props.vars.widget}
             {label}

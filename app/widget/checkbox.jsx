@@ -22,7 +22,7 @@ import CheckboxLabel from '../label/checkbox';
 export default class Checkbox extends Component {
     render() {
         const parent_label_class = this.props.vars.parent_label_class || this.props.vars.label_attr.class || '';
-        if ('checkbox-inline'.indexOf(parent_label_class) != -1) return <Label {...setVars.call(this.props, { widget: <BaseCheckbox {...this.props} /> })} />
+        if ('checkbox-inline'.indexOf(parent_label_class) != -1) return <CheckboxLabel {...setVars.call(this.props, { widget: <BaseCheckbox {...this.props} /> })} />
         return <div className="checkbox">
             <CheckboxLabel {...setVars.call(this.props, { widget: <BaseCheckbox {...this.props} /> })} />
         </div>

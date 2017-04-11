@@ -9,10 +9,17 @@ import React, { Component } from 'react';
 {%- endblock time_row %}
  */
 
-import Row from './index';
+import { setVars } from 'react-symfony-formview';
+import Errors from '../errors';
+import Label from '../label';
+import Widget from '../widget';
 
 export default class TimeRow extends Component {
     render() {
-        return <Row {...setVars.call(this.props, { force_error: true })}/>
+        return <div className={`form-group ${this.props.vars.compound || this.props.vars.force_error && !this.props.vars.valid && 'has-error' || ''}`}>
+            <Errors {...setVars.call(this.props, { force_error: true })}/>
+            <Label {...setVars.call(this.props, { force_error: true })}/>
+            <Widget {...setVars.call(this.props, { force_error: true })}/>
+        </div>
     }
 }

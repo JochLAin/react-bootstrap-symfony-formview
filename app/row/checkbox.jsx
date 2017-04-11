@@ -11,6 +11,7 @@ import React, { Component } from 'react';
 {%- endblock checkbox_row %}
  */
 
+import Errors from '../errors';
 import Widget from '../widget';
 
 export default class CheckboxRow extends Component {

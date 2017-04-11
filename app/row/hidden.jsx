@@ -12,8 +12,6 @@ import Widget from '../widget';
 
 export default class HiddenRow extends Component {
     render() {
-        return <div>
-            <Widget {...this.props}/>
-        </div>
+        return <Widget {...this.props} />
     }
 }

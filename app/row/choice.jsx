@@ -11,10 +11,16 @@ import React, { Component } from 'react';
 
 
 import { setVars } from 'react-symfony-formview';
-import Row from './index';
+import Errors from '../errors';
+import Label from '../label';
+import Widget from '../widget';
 
 export default class ChoiceRow extends Component {
     render() {
-        return <Row {...setVars.call(this.props, { force_error: true })}/>
+        return <div className={`form-group ${this.props.vars.compound || this.props.vars.force_error && !this.props.vars.valid && 'has-error' || ''}`}>
+            <Errors {...setVars.call(this.props, { force_error: true })}/>
+            <Label {...setVars.call(this.props, { force_error: true })}/>
+            <Widget {...setVars.call(this.props, { force_error: true })}/>
+        </div>
     }
 }
