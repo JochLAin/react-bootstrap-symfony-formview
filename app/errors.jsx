@@ -18,7 +18,7 @@ import React, { Component } from 'react';
 
 export default class Errors extends Component {
     render() {
-        if (!this.props.vars.errors) return <span></span>
+        if (!this.props.vars.errors || !this.props.vars.errors.length) return <span hidden></span>
 
         const errors = <ul className="list-unstyled">
             { this.props.vars.errors.map(error => <li>{error.message}</li>)}
