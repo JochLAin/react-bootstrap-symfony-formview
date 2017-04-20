@@ -17,7 +17,7 @@ export default class CheckboxRow extends Component {
     render() {
         return <div className={`form-group ${this.props.vars.valid && 'has-error' || ''}`}>
             <Widget {...this.props}/>
-            <Errors {...this.props}/>
+            {!!this.props.vars.errors && <Errors {...this.props} />}
         </div>
     }
 }

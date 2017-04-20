@@ -14,8 +14,8 @@ import { Errors, Label, Widget, setVars } from 'react-symfony-formview';
 export default class ChoiceRow extends Component {
     render() {
         return <div className={`form-group ${this.props.vars.compound || this.props.vars.force_error && !this.props.vars.valid && 'has-error' || ''}`}>
-            <Errors {...setVars.call(this.props, { force_error: true })}/>
-            <Label {...setVars.call(this.props, { force_error: true })}/>
+            { !!this.props.vars.errors && <Errors {...setVars.call(this.props, { force_error: true })} />}
+            { !!this.props.vars.label && <Label {...setVars.call(this.props, { force_error: true })} />}
             <Widget {...setVars.call(this.props, { force_error: true })}/>
         </div>
     }

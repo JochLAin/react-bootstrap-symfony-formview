@@ -39,7 +39,7 @@
   "dependencies": {
     "react": "^15.5.3",
     "react-dom": "^15.5.3",
-    "react-symfony-formview": "github:jochlain/react-symfony-formview#2.0.8",
+    "react-symfony-formview": "github:jochlain/react-symfony-formview#2.1.0",
     "uuid": "^3.0.1"
   }
 }
